@@ -54,7 +54,7 @@ DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = {
 }
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
-CLASS2COLOR: Optional[Dict[str, List[str]] | Literal["predefined"]] = {
+CLASS2COLOR: Optional[Dict[str, List[str]] or Literal["predefined"]] = {
     "car": [230, 25, 75],
     "truck": [60, 180, 75],
     "bus": [255, 225, 25],
