@@ -1,5 +1,36 @@
+The authors constructed a new **UAVDT Dataset** focused on complex scenarios with new level challenges. Selected from 10 hours raw videos, about 80, 000 representative frames are fully annotated with bounding boxes as well as up to 14 kinds of attributes (e.g., weather condition, flying altitude, camera view, vehicle category, and occlusion) for three fundamental computer vision tasks: object detection, single object tracking, and multiple object tracking. 
 
-Sample image template:
-<img src="https://github.com/dataset-ninja/gland-segmentation/assets/78355358/f158d0dd-71d5-41a2-aba5-4a5f57d54c35" alt="image" width="800">
+## Motivation
 
-<span style="font-size: smaller; font-style: italic;">Image description.</span>
+The rapid advancement of artificial intelligence has led to a growing demand for more efficient and effective intelligent vision systems. Addressing increasingly complex tasks in computer vision, such as object recognition, behavior analysis, and motion tracking, has prompted researchers to develop numerous foundational detection and tracking algorithms over the past decades. To ensure fair evaluation of these algorithms, the computer vision community has curated a wealth of datasets specifically designed for detection and tracking tasks. However, a common limitation of these datasets is their reliance on videos captured by fixed or car-mounted cameras, restricting viewing angles in surveillance scenarios. With the thriving global drone industry, Unmanned Aerial Vehicles (UAVs) have found applications in various domains including security, surveillance, search and rescue operations, and sports analysis. Unlike traditional surveillance cameras, UAVs equipped with moving cameras offer several inherent advantages, such as easy deployment, high mobility, expansive field of view, and consistent scale. Thus it brings new challenges to existing detection and tracking technologies, such as:
+* **High Density.** Since UAV cameras are flexible to capture videos at wider view angle than fixed cameras, leading to large object number.
+* **Small Object.** Objects are usually small or tiny due to high altitude of UAV views, resulting in difficulties to detect and track them.
+* **Camera Motion.** Objects move very fast or rotate drastically due to the high-speed flying or camera rotation of UAVs.
+* **Realtime Issues.** The algorithms should consider realtime issues and maintain comparable accuracy on embedded UAV platforms for practical application.
+
+## Dataset description
+
+The authors construct a large scale challenging UAV Detection and Tracking (UAVDT) benchmark (about 80, 000 representative frames from 10 hours raw videos) for 3 important fundamental tasks, i.e., object DETection (DET), Single Object Tracking (SOT) and Multiple Object Tracking (MOT). Our dataset is captured by UAVs in various complex scenarios. Since the current majority of datasets focus on pedestrians, as a supplement, the objects of interest in our benchmark are vehicles. Moreover, these frames are manually annotated with bounding boxes and some useful attributes, e.g., vehicle category and occlusion. The videos
+are recorded at 30 frames per seconds (fps), with the JPEG image resolution of 1080 × 540 pixels. 
+
+In the annotation process, the authors engaged over 10 domain experts who diligently labeled our dataset utilizing the [Vatic tool](https://www.cs.columbia.edu/~vondrick/vatic/) over a span of two months. Through multiple rounds of meticulous double-checking, annotation errors were minimized to the greatest extent possible. To elaborate, approximately 80,000 frames within the UAVDT benchmark dataset were annotated, encompassing around 2,700 vehicles and totaling approximately 0.84 million bounding boxes. It's worth noting that regions containing vehicles deemed too small were omitted from annotation in each frame due to their low resolution. Based on different shooting conditions of UAVs, we first define 3 attributes for MOT task:
+* **Weather Condition** indicates illumination when capturing videos, which affects appearance representation of objects. It includes ***daylight***, ***night*** and ***fog***. Specifically, videos shot in daylight introduce interference of shadows. ***night*** scene, bearing dim street lamp light, offers scarcely any texture information. In the meantime, frames captured at fog lack sharp details so that contours of objects vanish in the background.
+* **Flying Altitude** is the flying height of UAVs, affecting the scale variation of objects. Three levels are annotated, i.e., ***low alt***, ***medium alt*** and ***high alt***. When shooting in low altitude (10m ∼ 30m), more details of objects are captured. Mean while the object may occupy larger area, e.g., 22.6% pixels of a frame in an extreme situation. When videos are collected in mediumaltitude (30m ∼ 70m), more view angles are presented. While in much higher altitude (> 70m), plentiful vehicles are of less clarity. For example, most tiny objects just contain 0.005% pixels of a frame, yet object numbers can be more than a hundred.
+* **Camera View** consists of 3 object views. Specifically, ***front view***, ***side view*** and ***bird view*** mean the camera shooting along with the road, on the side, on the top of objects, respectively. Note that the first two views may coexist in one sequence.
+
+<img src="https://github.com/dataset-ninja/uavdt/assets/120389559/490091f5-fcdf-4173-9005-4544f8367182" alt="image" width="800">
+
+<span style="font-size: smaller; font-style: italic;"> Examples of annotated frames in the UAVDT benchmark. The three rows indicate the DET, MOT and SOT task, respectively. The shooting conditions of UAVs are presented in the lower right corner. The pink areas are ignored regions in the dataset. Different bounding box colors denote different classes of vehicles.</span>
+
+In order to comprehensively evaluate Detection (DET) algorithms, the authors extended their labeling efforts to encompass three additional attributes: vehicle category, vehicle occlusion, and out-of-view status. Vehicle category classification includes three main types: *car*, *truck*, and *bus*. Vehicle occlusion is categorized based on the fraction of bounding box occlusion, ranging from ***no occlusion*** (0%), ***small occlusion*** (1% to 30%), ***medium occlusion*** (30% to 70%), to ***large occlusion*** (70% to 100%). Out-of-view status indicates the extent to which vehicle parts lie outside the frame, divided into ***no out*** (0%), ***small out*** (1% to 30%), and ***medium out*** (30% to 50%). Objects exceeding a 50% out-of-view ratio are excluded from consideration. Within an image, objects are classified as "occluded" when obstructed by other objects or environmental obstacles (e.g., under a bridge). Conversely, objects are labeled as "out-of-view" when they extend beyond the image boundaries or into ignored regions.
+
+<img src="https://github.com/dataset-ninja/uavdt/assets/120389559/5bb69497-45ed-43e7-b98f-b74b06699230" alt="image" width="800">
+
+<span style="font-size: smaller; font-style: italic;">The distribution of attributes of both DET and MOT tasks in UAVDT.</span>
+
+The authors benchmark is divided into training and testing sets, with 30 and 70 sequences, respectively. The testing set consists of 20 sequences for both DET and MOT tasks, and 50 for SOT task. Besides, training videos are taken at different locations from the testing videos, but share similar scenes and attributes. This setting reduces the overfitting probability to particular scenario.
+
+**Note:** unfortunately, the authors' link to download the UAVDT-S dataset (SOT) attributes does not work. Therefore, the images in this dataset do not contain attribute information.
+
+
+

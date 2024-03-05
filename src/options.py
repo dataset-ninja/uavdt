@@ -1,6 +1,8 @@
-from dataset_tools.templates import AnnotationType
-from src.settings import ANNOTATION_TYPES
 from typing import List
+
+from dataset_tools.templates import AnnotationType
+
+from src.settings import ANNOTATION_TYPES
 
 ###############################################################################
 # ! Set up values if you want to change default values of visualizations
@@ -69,8 +71,8 @@ CLASSES_PREVIEW_TAGS: List[str] = None
 ### * Set up visualization params for ClassesHeatmaps class ###
 # args for "to_image" method
 DRAW_STYLE: str = None  # "inside_white" or "outside_black"
-HEATMAP_ROWS: int = None
-HEATMAP_COLS: int = None
+HEATMAP_ROWS: int = 1
+HEATMAP_COLS: int = 4
 HEATMAP_GRID_SPACING: int = None
 HEATMAP_OUTER_GRID_SPACING: int = None
 HEATMAP_OUTPUT_WIDTH: int = (
