@@ -18,13 +18,13 @@ In the annotation process, the authors engaged over 10 domain experts who dilige
 * **Flying altitude** is the flying height of UAVs, affecting the scale variation of objects. Three levels are annotated, i.e., ***low alt***, ***medium alt*** and ***high alt***. When shooting in low altitude (10m ∼ 30m), more details of objects are captured. Mean while the object may occupy larger area, e.g., 22.6% pixels of a frame in an extreme situation. When videos are collected in mediumaltitude (30m ∼ 70m), more view angles are presented. While in much higher altitude (> 70m), plentiful vehicles are of less clarity. For example, most tiny objects just contain 0.005% pixels of a frame, yet object numbers can be more than a hundred.
 * **Camera view** consists of 3 object views. Specifically, ***front view***, ***side view*** and ***bird view*** mean the camera shooting along with the road, on the side, on the top of objects, respectively. Note that the first two views may coexist in one sequence.
 
-<img src="https://github.com/dataset-ninja/uavdt/assets/120389559/490091f5-fcdf-4173-9005-4544f8367182" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/uavdt/assets/120389559/490091f5-fcdf-4173-9005-4544f8367182" alt="image" width="1200">
 
 <span style="font-size: smaller; font-style: italic;"> Examples of annotated frames in the UAVDT benchmark. The three rows indicate the DET, MOT and SOT task, respectively. The shooting conditions of UAVs are presented in the lower right corner. The pink areas are ignored regions in the dataset. Different bounding box colors denote different classes of vehicles.</span>
 
 In order to comprehensively evaluate Detection (DET) algorithms, the authors extended their labeling efforts to encompass three additional attributes: vehicle category, vehicle occlusion, and out-of-view status. Vehicle category classification includes three main types: *car*, *truck*, and *bus*. Vehicle occlusion is categorized based on the fraction of bounding box occlusion, ranging from ***no occlusion*** (0%), ***small occlusion*** (1% to 30%), ***medium occlusion*** (30% to 70%), to ***large occlusion*** (70% to 100%). Out-of-view status indicates the extent to which vehicle parts lie outside the frame, divided into ***no out*** (0%), ***small out*** (1% to 30%), and ***medium out*** (30% to 50%). Objects exceeding a 50% out-of-view ratio are excluded from consideration. Within an image, objects are classified as "occluded" when obstructed by other objects or environmental obstacles (e.g., under a bridge). Conversely, objects are labeled as "out-of-view" when they extend beyond the image boundaries or into ignored regions.
 
-<img src="https://github.com/dataset-ninja/uavdt/assets/120389559/5bb69497-45ed-43e7-b98f-b74b06699230" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/uavdt/assets/120389559/5bb69497-45ed-43e7-b98f-b74b06699230" alt="image" width="600">
 
 <span style="font-size: smaller; font-style: italic;">The distribution of attributes of both DET and MOT tasks in UAVDT.</span>
 
