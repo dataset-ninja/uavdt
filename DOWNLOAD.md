@@ -1,6 +1,6 @@
 Dataset **UAVDT** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/N/Y/Ks/1xb3rOTyfVpkaMujW3ADmLAPDbTcyGUrwoRKmDE0yASoZB6ALsgZstZ5ewcEGusFoflLb4xCDCbOPfJsd37J35JnPrCFz0pfdJ7wKfpV7CWU5i07eJx8EnLLJBC6.tar)
+ [Download](https://www.dropbox.com/scl/fi/vaqpimf247amiu0ijeyen/uavdt-DatasetNinja.tar?rlkey=gwydhrv0hef7rssvrs3wxvh9a&dl=1)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
